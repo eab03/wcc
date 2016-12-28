@@ -57,7 +57,7 @@
 
 def mystery(x, y, z):
 
-    result = x + y * z
+    result = x + (y * z)
     return result
 
 print mystery('Hello', 3, '!') # Expected: 'Hello!!!'
@@ -73,18 +73,51 @@ def calculate_tip(meal_price, service_rating):
     # Calculate the tip % using an if statement
     # tip_percentage = ???
     if service_rating == 'A':
-        tip_percentage = .2
+        tip_percentage = .2;
     elif service_rating == 'B':
-        tip_percentage = .18
+        tip_percentage = .18;
     elif service_rating == 'C':
-        tip_percentage = .15
+        tip_percentage = .15;
 
     # Calculate the tip amount by multiplying the meal price by the tip percentage
     # tip_amount = ???
 
-    tip_amount = meal_price * tip_percentage
+    tip_amount = meal_price * tip_percentage;
     return tip_amount
 
 print(calculate_tip(30.50, 'C')) # Expected: 4.575
 print(calculate_tip(15.00, 'B')) # Expected: 2.7
 print(calculate_tip(20.00, 'A')) # Expected: 4
+
+
+def isPositive(a):
+    if a > 0:
+        return True
+    else:
+        return False
+
+print(isPositive(4))
+
+
+def isPositive(a):
+    return a > 0
+
+print(isPositive(4))
+
+#______________
+
+def calculate_lucky_number(birth_month, birth_day):
+
+    lucky_number = birth_month;
+
+    if birth_month in [2, 4, 6]:
+        lucky_number = birth_month + birth_day
+        return lucky_number
+    elif birth_month in [8, 10, 12]:
+        lucky_number = (birth_month * 10) - birth_day
+        return lucky_number
+
+    return lucky_number * 2
+
+#Given the following invocation, what do you predict the results will be?
+print(calculate_lucky_number(11, 10)) # Expected: ???
