@@ -10,13 +10,11 @@ def check_move(move):
     # YOUR CODE GOES HERE
     if move == 'rock':
         return True
-    elif move == 'paper':
+    if move == 'paper':
         return True
-    elif move == 'scissors':
+    if move == 'scissors':
         return True
-    elif move == 'roc':
-        return False
-    elif move == 1:
+    else:
         return False
 
 # Test the check_move function
@@ -74,15 +72,11 @@ def judge(moveA, moveB):
     # YOUR CODE HERE
     if moveA == 'rock' and moveB == 'paper':
         return False
-    if moveA == 'rock' and moveB == 'scissors':
-        return True
-    if moveA == 'paper' and moveB == 'rock':
-        return True
     if moveA == 'paper' and moveB == 'scissors':
         return False
     if moveA == 'scissors' and moveB == 'rock':
         return False
-    if moveA == 'scissors' and moveB == 'paper':
+    else:
         return True
 
 #print judge('rock','paper') # Expected: False
@@ -98,22 +92,26 @@ def play():
 
     # Player goes
     # ???
-    get_player_move()
+    player = get_player_move()
+    check_move(get_player_move)
 
     # Computer goes
     # ???
-    get_computer_move()
+    computer = get_computer_move()
 
-    print('The computer picked: ' + get_computer_move())
+    print('The computer picked: ' + computer)
 
     # Figure out who won
     # Print results; either: `Tie`, `You Won!`, or `The computer won.`
     # ???
 
-    if get_player_move() > get_computer_move():
-        print('The computer won!')
-    elif get_player_move() < get_computer_move():
+# Stolen from WCC
+    if player == computer:
+        print('Tie!')
+    elif(judge(player, computer) == True):
         print('You won!')
+    else:
+        print('The computer won!')
 
     # Prompt to play again
     play_again = raw_input('Play again? Type `y` or `n`: ')
