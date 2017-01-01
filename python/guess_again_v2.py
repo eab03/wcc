@@ -70,21 +70,27 @@ def play():
     # Keep prompting until they get it correct
     # For every failed attempt, print 'Too x. Guess again.' where x is either 'high' or 'low'
 
-    for count in range(4, 0, -1):
+    #for count in range(4, 0, -1):
+    #http://stackoverflow.com/questions/4767401/decrementing-for-loops
+
+    for guess_count in range(0, 4):
+
+        if guess == secret_number:
+            break
 
         results = compare(guess, secret_number);
 
-        if guess == secret_number:
-            print('You got it! The number was ' + str(secret_number))
-            break
+        guesses_left = 4 - guess_count;
 
-        if guess != secret_number:
-            print('Too ' + results + ' you have ' + str(count) + ' guesses left')
-            guess = get_guess()
+        print('Too ' + results + ' you have ' + str(guesses_left) + ' guesses left')
+        guess = get_guess()
 
-        if count == 1:
-            print('Sorry you are out of guesses. The correct number was '+ str(secret_number))
-            break
+# conclusion
+    if guess == secret_number:
+        print('You got it! The number was ' + str(secret_number))
+    else:
+        print('Sorry, you ran out of turns! The correct number was ' + str(secret_number))
+
 
 # Run the game
 play()
